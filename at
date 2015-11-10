@@ -3,7 +3,7 @@ require 'json'
 
 Dir["./who/*"]
     .select  {|f| f.end_with? '.json' }
-    .collect {|f| {contents: File.readlines(f).join('\n'), path: f} }
+    .collect {|f| {contents: File.readlines(f).join(''), path: f} }
     .collect do |meta|
         begin
             { data: JSON.parse(meta[:contents]), path: meta[:path] }
